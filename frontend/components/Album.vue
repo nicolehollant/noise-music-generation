@@ -1,7 +1,7 @@
 <template>
   <div class="album">
     <audio id="song" ref="song" :key="`src-${tracklist[trackIndex].src}`">
-      <source :src="tracklist[trackIndex].src" type="audio/mpeg" />
+      <source :src="getSrc()" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
 
@@ -94,6 +94,13 @@ export default {
     this.changeSong(0, false)
   },
   methods: {
+    getSrc() {
+      let src = this.tracklist[this.trackIndex].src
+      if (process.env.DEPLOY_ENV === 'GH_PAGES') {
+        src = "/noise-music-generation" + src
+      }
+      return src
+    },
     changeSong(track, play) {
       this.trackIndex = track
       setTimeout(() => {
