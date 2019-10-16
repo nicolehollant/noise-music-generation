@@ -33,10 +33,6 @@ export default function(p, window) {
       })
     }
     addPlayListeners()
-    p.loadImage('/polyphia.png', (img) => {
-      image = img
-      console.log(image)
-    })
   }
 
   const addPlayListeners = () => {
@@ -159,7 +155,6 @@ export default function(p, window) {
       this.time++
       if (this.time > this.timeout) {
         this.switching = true
-        console.log('Going...')
         if (this.mode === 0) {
           this.backgroundColor += 140 / this.switchtimeout
           this.fillColor -= 255 / this.switchtimeout
@@ -171,7 +166,6 @@ export default function(p, window) {
         p.rect(0, 0, width, height)
         p.fill(this.fillColor)
         if (this.time > this.timeout + this.switchtimeout) {
-          console.log('DONE!!')
           this.time = 0
           this.mode++
           if (this.mode > 1) {
