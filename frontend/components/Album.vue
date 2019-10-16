@@ -97,7 +97,7 @@ export default {
     getSrc() {
       let src = this.tracklist[this.trackIndex].src
       // if (process.env.DEPLOY_ENV === 'GH_PAGES') {
-      src = "/noise-music-generation" + src
+      src = '/noise-music-generation' + src
       // }
       return src
     },
