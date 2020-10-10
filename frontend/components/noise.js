@@ -8,7 +8,6 @@ export default function(p, window) {
   const grid = []
   const gridSize = 100
   let song
-  let image
 
   p.setup = function() {
     width = document.getElementById('sketch').clientWidth
@@ -33,6 +32,12 @@ export default function(p, window) {
       })
     }
     addPlayListeners()
+  }
+
+  p.windowResized = function() {
+    width = document.getElementById('sketch').clientWidth
+    height = document.getElementById('sketch').clientHeight
+    p.resizeCanvas(width, height)
   }
 
   const addPlayListeners = () => {

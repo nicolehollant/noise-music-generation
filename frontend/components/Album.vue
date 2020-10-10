@@ -158,16 +158,16 @@ export default {
 
 <style lang="postcss">
 .album {
-  width: min-content;
+  width: 100%;
   @apply mx-auto;
 }
 .album--tracklist {
-  background-color: #4a556880;
-  @apply py-4;
+  background-color: #3e444e80;
+  @apply py-4 rounded-t-lg;
 }
 .album--tracklist__track {
   transition: all 0.2s ease-out;
-  @apply px-4 py-2 text-gray-100;
+  @apply px-4 py-2 text-gray-100 leading-none;
 }
 .album--tracklist__track:hover {
   @apply bg-gray-500;
@@ -182,9 +182,9 @@ export default {
   @apply text-xl;
 }
 .album--controls {
-  width: 500px;
+  width: 100%;
   background-color: #2d3748a0;
-  @apply m-auto text-gray-100;
+  @apply m-auto text-gray-100 rounded-b-lg;
 }
 .album--controls__progress-shell {
   height: 1rem;
@@ -210,8 +210,7 @@ export default {
 }
 .album-controls--row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  @apply py-4;
+  grid-template-rows: repeat(3, 1fr);
 }
 .row-item {
   @apply flex items-center justify-center;
@@ -229,5 +228,20 @@ export default {
   width: 3rem;
   height: 3rem;
   @apply p-4 mx-2 bg-blue-600 text-lg;
+}
+
+@media (min-width: 640px) {
+  .album {
+    width: max-content;
+  }
+  .album-controls--row {
+    display: grid;
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, 1fr);
+    @apply py-4;
+  }
+  .album--tracklist__track {
+    @apply py-3;
+  }
 }
 </style>

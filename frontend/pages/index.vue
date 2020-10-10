@@ -6,13 +6,6 @@
       <div class="album-view">
         <div class="text">
           <h1 class="title">noise</h1>
-          <p class="blurb">
-            Noise is unwanted sound judged to be unpleasant, loud or disruptive
-            to hearing. From a physics standpoint, noise is indistinguishable
-            from sound, as both are vibrations through a medium, such as air or
-            water. The difference arises when the brain receives and perceives a
-            sound.
-          </p>
         </div>
         <Album :tracklist="tracklist" />
       </div>
@@ -57,23 +50,28 @@ export default {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   letter-spacing: 1px;
-  @apply text-6xl font-hairline text-gray-400;
+  /* @apply text-3xl font-thin text-gray-400 leading-none mb-4; */
+  @apply text-3xl font-normal text-gray-400 leading-none mb-4;
 }
 .text {
   @apply pb-4 text-gray-500;
 }
+.blurb {
+  @apply text-sm leading-tight;
+}
 
 .album--wrapper {
   z-index: 2;
-  margin-top: 15vh;
-  margin-bottom: 15vh;
-  @apply relative max-w-xl mx-auto;
+  width: 36rem;
+  max-width: calc(100% - 2rem);
+  @apply relative mx-auto h-screen flex justify-center items-center overflow-scroll;
 }
 
 .album-view {
-  background-color: #000000d0;
-  backdrop-filter: blur(8px);
-  @apply p-8 rounded;
+  /* background-color: #00000060; */
+  background: radial-gradient(#000000f0 0%, #00000000 70%);
+  /* backdrop-filter: blur(4px); */
+  @apply w-full px-4 pb-4 pt-4 rounded-lg;
 }
 
 #sketch {
@@ -87,5 +85,18 @@ export default {
   z-index: 1;
   background: radial-gradient(#00000000 50%, #000000c0);
   @apply w-screen h-screen fixed top-0 left-0;
+}
+
+@media (min-width: 640px) {
+  .title {
+    /* @apply text-6xl font-hairline; */
+    @apply text-5xl font-thin;
+  }
+  .album-view {
+    @apply px-8 pb-8 pt-4;
+  }
+  .blurb {
+    @apply text-base leading-tight;
+  }
 }
 </style>

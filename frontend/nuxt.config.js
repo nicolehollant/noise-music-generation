@@ -1,8 +1,13 @@
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+// const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+//   router: {
+//     base: '/noise-music-generation/'
+//   }
+// } : {}
+const routerBase = { 
   router: {
     base: '/noise-music-generation/'
   }
-} : {}
+}
 
 export default {
   mode: 'universal',
